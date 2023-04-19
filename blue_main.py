@@ -5,12 +5,6 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import QIcon
-
-
-
-#from PyQt5 import QtCore, QtGui
-#from PyQt5 import QtCore, QtGui, QtWidgets
-
 from ui_cal import Ui_MainWindow
 
 
@@ -35,8 +29,6 @@ class CurrencyConv(QMainWindow):
         self.ui_cal.output_amount.setPlaceholderText("Я получу:")
         self.ui_cal.pushButton.clicked.connect(self.converter)
 
-
-
     def converter(self):
         '''на основе класса создание функции'''
         currency = CurrencyConverter()
@@ -47,12 +39,8 @@ class CurrencyConv(QMainWindow):
         output_amount = round(currency.convert(input_amount,from_currency, to_currency), 2)
         self.ui_cal.output_amount.setText(str(output_amount))
 
-
-
-
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-
     application = CurrencyConv()
     application.show()
     sys.exit(app.exec())
